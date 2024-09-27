@@ -12,12 +12,33 @@ in
 
   programs.spicetify = {
     enable = true;
-     enabledExtensions = with spicePkgs.extensions; [
-       adblock
-       hidePodcasts
-       shuffle # shuffle+ (special characters are sanitized out of extension names)
-     ];
      theme = spicePkgs.themes.catppuccin;
      colorScheme = "macchiato";
+     enabledCustomApps = with spicePkgs.apps; [
+	marketplace
+	lyricsPlus
+	newReleases
+     ];
+     enabledExtensions = with spicePkgs.extensions; [
+       adblock
+       fullAppDisplay
+       loopyLoop
+       shuffle
+       groupSession
+       playlistIcons
+       fullAlbumDate
+       goToSong
+       listPlaylistsWithSong
+       playlistIntersection
+       skipStats
+       phraseToPlaylist
+       songStats
+       showQueueDuration
+       copyToClipboard
+       history
+       lastfm
+       #genre
+       volumePercentage
+     ];
   };
 }
