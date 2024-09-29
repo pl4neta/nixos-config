@@ -126,5 +126,8 @@
 
 	qimgv
 	bat
+
+	rustup
+	gcc
   ]);
 }
