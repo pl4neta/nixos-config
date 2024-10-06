@@ -23,5 +23,6 @@
     ./xdg-mimes.nix                   # xdg config
     ./zsh.nix                         # shell
     ./zen.nix			      # foss browser
+    ./hyprpanel.nix
   ];
 }

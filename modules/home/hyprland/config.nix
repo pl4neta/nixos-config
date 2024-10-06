@@ -117,8 +117,9 @@
 
             exec-once = [
                 #"swww-daemon &"
-                "waybar &"
-                "swaybg -m fill -i .dotfiles/wallpapers/interstellar-gargantua.png &"
+                #"waybar &"
+                "hyprpanel &"
+                "swaybg -m fill -i .dotfiles/wallpapers/perfect-blue.jpeg &"
                 "hyprlock"
             ];
 

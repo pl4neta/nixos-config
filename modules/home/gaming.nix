@@ -26,5 +26,6 @@
     #snes9x
     # cemu
     # dolphin-emu
+    rpcs3
   ];
 }

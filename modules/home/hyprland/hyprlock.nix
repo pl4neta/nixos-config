@@ -8,7 +8,7 @@ in
     # BACKGROUND
     background {
       monitor =
-      path = ${../../../wallpapers/interstellar-gargantua-closeup.jpeg}
+      path = ${../../../wallpapers/perfect-blue.jpeg}
       blur_passes = 1
       contrast = 0.8916
       brightness = 0.8172

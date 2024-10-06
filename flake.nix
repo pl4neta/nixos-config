@@ -31,6 +31,11 @@
     zen-browser = {
       url = "github:MarceColl/zen-browser-flake";
     };
+
+    hyprpanel = {
+        url = "github:Jas-SinghFSU/HyprPanel";
+    };
+
   };
 
   outputs = { nixpkgs, self, ...} @ inputs:
