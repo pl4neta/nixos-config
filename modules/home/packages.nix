@@ -80,23 +80,19 @@
     inputs.alejandra.defaultPackage.${system}
     */
 
-    #audacity
         #bluez (bluetooth, alternative maybe)
         brightnessctl #light
         vscode
         ddcutil # control external monitor brightness
-        ###discord
-        dunst #libnotify needed?
         eww
         firefox
         godot3
+        inkscape
         kitty #alacrityy
-        #libresprite
+        libresprite
         lf
         lutris
         mupdf
-        neofetch # (alternative maybe, since no more updates)
-        ###neovim
         obs-studio
         obsidian
         pavucontrol
@@ -106,23 +102,15 @@
         rofi-wayland
         scrot # (alternative maybe)
         signal-desktop
-        ###spotify
 	steam
         sunshine
-        swww #nitrogen
-        xfce.thunar #dolphin
         trashy #trash-cli
         unzip
         vlc
-        ###waybar
         wev
         wine-wayland
         wireplumber
         zip
-        #waybar.overrideAttrs (oldAttrs: {
-        #  mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-        #  })
-        #)
 
 	qimgv
 	bat

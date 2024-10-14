@@ -8,7 +8,10 @@
 	    "$menu" = "rofi -config ~/.dotfiles/.config/rofi/config -show drun -theme ~/.dotfiles/.config/rofi/style.rasi";
 
 
-            monitor= ",1920x1080,auto,1";
+            monitor = [
+                "eDP-1, 1920x1080, 0x0, 1"
+                "HDMI-A-1, 1920x1080, 1920x0, 1"
+            ];
 
             env = [
                 "XCURSOR_SIZE,24"
@@ -99,16 +102,9 @@
             };
             
         workspace = [
-            "1, monitor: eDP-1, persistent: true"
-            "2, monitor: eDP-1, persistent: true"
-            "3, monitor: eDP-1, persistent: true"
-            "4, monitor: eDP-1, persistent: true"
-            "5, monitor: eDP-1, persistent: true"
-            "6, monitor: eDP-1, persistent: true"
-            "7, monitor: eDP-1, persistent: true"
-            "8, monitor: eDP-1, persistent: true"
-            "9, monitor: eDP-1, persistent: true"
-            "10, monitor: HDMI-1-A, persistent: true"
+            "r[1-9],monitor:eDP-1,persistent:true"
+            "1,default:true"
+            "10,monitor:HDMI-A-1,persistent:true,default:true"
 	];
 
             windowrulev2 = [

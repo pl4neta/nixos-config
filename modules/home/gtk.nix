@@ -12,10 +12,16 @@ in
       "CascadiaCode"
       "NerdFontsSymbolsOnly"
     ]; })
-    twemoji-color-font
-    noto-fonts-emoji
+    #twemoji-color-font
+    #noto-fonts-emoji
     # monolisa
     # monolisa-nerd
+
+    noto-fonts
+    montserrat
+    jetbrains-mono
+    open-sans
+    commit-mono
   ];
 
   gtk = {
