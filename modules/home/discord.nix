@@ -2,8 +2,9 @@
 {
   home.packages = with pkgs; [
     # discord
-    (discord.override { 
+    /*(discord.override { 
      withVencord = true; 
-    })
+    })*/
+    vesktop
   ];
 }

@@ -102,9 +102,9 @@
             };
             
         workspace = [
-            "r[1-9],monitor:eDP-1,persistent:true"
+            "r[1-9],monitor:eDP-1"
             "1,default:true"
-            "10,monitor:HDMI-A-1,persistent:true,default:true"
+            "10,monitor:HDMI-A-1,default:true"
 	];
 
             windowrulev2 = [

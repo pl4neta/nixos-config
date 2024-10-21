@@ -1,20 +1,19 @@
 { pkgs, ... }:
 {  
-  hardware = {
-    graphics = {
-      enable = true;
-      extraPackages = with pkgs; [
+    hardware = {
+        graphics = {
+            enable = true;
+            enable32Bit = true;
+            extraPackages = with pkgs; [
     
-      ];
+            ];
+        };
+        nvidia = {
+    	    modesetting.enable = true;
+	        open = false;
+	        nvidiaSettings = true;
+        };
     };
-    nvidia = {
-    	modesetting.enable = true;
-	open = false;
-	nvidiaSettings = true;
-    };
-  };
     services.xserver.videoDrivers = ["nvidia"];
-  hardware.enableRedistributableFirmware = true;
-  hardware.graphics.enable32Bit = true;
-  hardware.pulseaudio.support32Bit = true;
+    hardware.enableRedistributableFirmware = true;
 }
