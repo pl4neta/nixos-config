@@ -1,5 +1,5 @@
 {
-  description = "FrostPhoenix's nixos configuration";
+  description = "Pl4neta's nixos configuration";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -36,6 +36,9 @@
         url = "github:Jas-SinghFSU/HyprPanel";
     };
 
+	nixvim = {
+		url = "github:Pl4neta/nixvim";
+	};
   };
 
   outputs = { nixpkgs, self, ...} @ inputs:
