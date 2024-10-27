@@ -117,5 +117,9 @@
 
 	rustup
 	gcc
+
+	go
+
+	wl-clipboard
   ]);
 }

@@ -37,7 +37,7 @@
     };
 
 	nixvim = {
-		url = "github:Pl4neta/nixvim";
+		url = "github:Pl4neta/nixvim-config";
 	};
   };
 
