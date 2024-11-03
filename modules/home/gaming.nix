@@ -27,5 +27,6 @@
     # cemu
     # dolphin-emu
     rpcs3
+    heroic
   ];
 }

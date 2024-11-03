@@ -114,6 +114,11 @@
 
 	qimgv
 	bat
+	
+	inputs.zen-browser.packages."${system}".default
+	inputs.hyprpanel.packages."${system}".default
+	inputs.nixvim.packages."${system}".default
+	vesktop
 
 	rustup
 	gcc

@@ -43,15 +43,16 @@ in
       };
     };
     cursorTheme = {
-      name = "Bibata-Modern-Ice";
-      package = pkgs.bibata-cursors;
+      name = "catppuccin-macchiato-light-cursors";
+      package = pkgs.catppuccin-cursors.macchiatoLight;
       size = 24;
     };
   };
   
   home.pointerCursor = {
-    name = "Bibata-Modern-Ice";
-    package = pkgs.bibata-cursors;
+    name = "catppuccin-macchiato-light-cursors";
+    package = pkgs.catppuccin-cursors.macchiatoLight;
     size = 24;
+		gtk.enable = true;
   };
 }
