@@ -53,6 +53,5 @@ in
     name = "catppuccin-macchiato-light-cursors";
     package = pkgs.catppuccin-cursors.macchiatoLight;
     size = 24;
-		gtk.enable = true;
   };
 }

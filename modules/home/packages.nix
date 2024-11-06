@@ -1,6 +1,6 @@
 { inputs, pkgs, ... }: 
 {
-  home.packages = (with pkgs; [
+  home.packages = with pkgs; [
 
     ## CLI utility
     /*
@@ -81,14 +81,14 @@
     */
 
         #bluez (bluetooth, alternative maybe)
-        brightnessctl #light
+        brightnessctl
         vscode
         ddcutil # control external monitor brightness
         eww
         firefox
         godot3
         inkscape
-        kitty #alacrityy
+        kitty
         libresprite
         lf
         lutris
@@ -100,11 +100,10 @@
         #qemu
         qjackctl
         rofi-wayland
-        scrot # (alternative maybe)
         signal-desktop
 	steam
         sunshine
-        trashy #trash-cli
+        trashy
         unzip
         vlc
         wev
@@ -126,5 +125,5 @@
 	go
 
 	wl-clipboard
-  ]);
+  ];
 }
