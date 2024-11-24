@@ -2,7 +2,7 @@
 with lib;
 let
   defaultApps = {
-    browser = [ "floorp.desktop" ];
+    browser = [ "zen.desktop" ];
     text = [ "org.gnome.TextEditor.desktop" ];
     image = [ "qimgv.desktop" ];
     audio = [ "mpv.desktop" ];

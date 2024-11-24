@@ -125,5 +125,7 @@
 	go
 
 	wl-clipboard
+
+	#qemu
   ];
 }

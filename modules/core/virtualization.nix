@@ -4,7 +4,7 @@
   users.users.${username}.extraGroups = [ "libvirtd" ];
 
   # Install necessary packages
-  environment.systemPackages = with pkgs; [
+  /*environment.systemPackages = with pkgs; [
     virt-manager
     virt-viewer
     spice spice-gtk
@@ -12,10 +12,11 @@
     win-virtio
     win-spice
     adwaita-icon-theme
-  ];
-
+  ];*/
+	programs.virt-manager.enable = true;
+	virtualisation.libvirtd.enable = true;
   # Manage the virtualisation services
-  virtualisation = {
+  /*virtualisation = {
     libvirtd = {
       enable = true;
       qemu = {
@@ -25,6 +26,6 @@
       };
     };
     spiceUSBRedirection.enable = true;
-  };
+  };*/
   services.spice-vdagentd.enable = true;
 }
