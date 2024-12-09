@@ -19,6 +19,5 @@
     ./swaylock.nix                    # lock screen
     ./xdg-mimes.nix                   # xdg config
     ./zsh.nix                         # shell
-		./flameshot.nix
   ];
 }

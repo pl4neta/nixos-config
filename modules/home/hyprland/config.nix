@@ -187,6 +187,15 @@
                 #eww
                 #dashboard
                 "$mainMod, Tab, exec, ~/.config/eww/dashboard/launch_dashboard"
+								## Screenshot
+								"CTRL, Print, exec, grimshot --notify save screen images/screenshots/$(TZ=gmt date +'screenshot_%Y-%m-%d_%H-%M-%S.%3N.png')" # All visible outputs
+								"CTRL SHIFT, Print, exec, grimshot --notify save area images/screenshots/$(TZ=gmt date +'screenshot_%Y-%m-%d_%H-%M-%S.%3N.png')" # Manually select a region
+								"CTRL ALT, Print, exec, grimshot --notify save active images/screenshots/$(TZ=gmt date +'screenshot_%Y-%m-%d_%H-%M-%S.%3N.png')" # Currently active window
+								"CTRL SHIFT ALT, Print, exec, grimshot --notify save window images/screenshots/$(TZ=gmt date +'screenshot_%Y-%m-%d_%H-%M-%S.%3N.png')" # Manually select a window
+								", Print, exec, grimshot --notify copy screen"
+								"SHIFT, Print, exec, grimshot --notify copy area"
+								"ALT, Print, exec, grimshot --notify copy active"
+								"SHIFT ALT, Print, exec, grimshot --notify copy window"
             ];
             bindm = [
                 # Move/resize windows with mainMod + LMB/RMB and dragging

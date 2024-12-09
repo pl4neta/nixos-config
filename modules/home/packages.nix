@@ -127,5 +127,7 @@
 	wl-clipboard
 
 	#qemu
+
+	sway-contrib.grimshot
   ];
 }
