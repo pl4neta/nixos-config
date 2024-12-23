@@ -6,12 +6,10 @@ in
 {
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
-    (nerdfonts.override { fonts = [
-      "JetBrainsMono"
-      "FiraCode"
-      "CascadiaCode"
-      "NerdFontsSymbolsOnly"
-    ]; })
+		pkgs.nerd-fonts.jetbrains-mono
+		pkgs.nerd-fonts.fira-code
+		#pkgs.nerd-fonts.cascadia_code
+		#pkgs.nerd-fonts.nerd_fonts_symbols_only
     #twemoji-color-font
     #noto-fonts-emoji
     # monolisa

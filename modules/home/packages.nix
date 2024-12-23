@@ -129,5 +129,7 @@
 	#qemu
 
 	sway-contrib.grimshot
+
+	ani-cli
   ];
 }
