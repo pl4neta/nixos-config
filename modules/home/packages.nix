@@ -131,5 +131,7 @@
 	sway-contrib.grimshot
 
 	ani-cli
+
+	scarab #hollow knight mod manager
   ];
 }
