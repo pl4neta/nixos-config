@@ -20,5 +20,6 @@
     ./xdg-mimes.nix                   # xdg config
     ./zsh.nix                         # shell
 		./lf.nix
+    ./awesome.nix
   ];
 }

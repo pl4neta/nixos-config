@@ -2,7 +2,8 @@
 {
   home.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-    __GL_GSYNC_ALLOWED = "0";
+    #__GL_GSYNC_ALLOWED = "0";
+    __GL_MaxFramesAllowed = "1";
     __GL_VRR_ALLOWED = "0";
     _JAVA_AWT_WM_NONEREPARENTING = "1";
     SSH_AUTH_SOCK = "/run/user/1000/keyring/ssh";
@@ -20,13 +21,16 @@
     WLR_BACKEND = "vulkan";
     WLR_RENDERER = "vulkan";
     WLR_NO_HARDWARE_CURSORS = "1";
-    XDG_SESSION_TYPE = "wayland";
+    #XDG_SESSION_TYPE = "wayland";
     SDL_VIDEODRIVER = "wayland";
     CLUTTER_BACKEND = "wayland";
     GTK_THEME = "Catppuccin-Macchiato";
 
-    LIBVA_DRIVER_NAME = "nvidia";
-    GBM_BACKEND = "nvidia-drm";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    MESA_LOADER_DRIVER_OVERRIDE = "nouveau";
+    DRI_PRIME = "1";
+
+    #LIBVA_DRIVER_NAME = "nvidia";
+    #GBM_BACKEND = "nvidia-drm";
+    #__GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
 }

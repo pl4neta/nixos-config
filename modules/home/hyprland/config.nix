@@ -9,7 +9,7 @@
 
 
             monitor = [
-                "eDP-1, preferred, -1920x320, 1"
+                "eDP-1, 1920x1080@60, -1920x320, 1"
                 "HDMI-A-1, 2560x1440@144, 0x0, 1"
             ];
 
@@ -118,7 +118,7 @@
                 #"waybar &"
                 "hyprpanel &"
                 "swaybg -m fill -i .dotfiles/wallpapers/perfect-blue.jpeg &"
-                "hyprlock"
+                #"hyprlock"
             ];
 
             bind = [

@@ -1,0 +1,34 @@
+#!/bin/bash
+
+cache_dir="$HOME/.cache/eww/music"
+cache_art="${cache_dir}/music-art"
+placeholder_art="$HOME/images/music_placeholder.jpg"
+
+if [[ ! -d "$cache_dir" ]]; then
+	mkdir -p ${cache_dir}
+fi
+
+
+
+if [[ "$1" == "--art" ]]; then
+		url=`playerctl metadata --player=playerctld mpris:artUrl`
+		echo $url > testeeses
+		if [[ "$url" != "No players found" || "$url" != "" ]]; then
+			if [[ -f $url || `echo $url | awk '/^file:\/\//'` ]]; then
+    			`cp ${url#'file://'} $cache_art`
+			else
+				`wget -O $cache_art $url`
+			fi
+			echo $cache_art
+		else
+			echo $placeholder_art
+		fi
+elif [[ "$1" == "--title" ]]; then
+	zscroll --length 26 --delay 0.5 --scroll-padding '          ' --update-check true 'playerctl metadata title'
+elif [[ "$1" == "--status" ]]; then
+	if [[ "$(playerctl --player=playerctld status)" == "Playing" ]]; then
+		echo "󰏥"
+	else
+		echo "󰐌"
+	fi
+fi

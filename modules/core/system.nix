@@ -1,5 +1,6 @@
 { self, pkgs, lib, inputs, ...}: 
 {
+  environment.variables.EDITOR = "nvim";
   # imports = [ inputs.nix-gaming.nixosModules.default ];
   nix = {
     settings = {

@@ -1,0 +1,13 @@
+;; variable
+(defpoll BLIGHTVAL :interval ".1s" `./blight`)
+
+;;widget
+(defwidget blightw []
+	(box :class "bg" :orientation "h" :halign "center"
+		(label :class "txt" :text "󰃟    ${BLIGHTVAL}")))
+
+
+;; window
+(defwindow blight :stacking "fg" :focusable "false" :screen 1 
+	:geometry (geometry :x 925 :y 980 :width "70px" :height "35px")
+		(blightw))

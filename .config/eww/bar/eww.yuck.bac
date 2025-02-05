@@ -1,0 +1,76 @@
+(defvar eww "`which eww` -c $HOME/.config/eww/bar")
+
+
+(defwidget workspaces []
+    (box :class "workspaces active_workspace_${currentWorkspace}" :orientation "v" :space-evenly "false" :valign "start" :spacing 7
+        (button :class "workspace_1" :onclick `echo 'screen[1].tags[1]:view_only()' | awesome-client` "")
+        (button :class "workspace_2" :onclick `echo 'screen[1].tags[2]:view_only()' | awesome-client` "")
+        (button :class "workspace_3" :onclick `echo 'screen[1].tags[3]:view_only()' | awesome-client` "󰎈")
+        (button :class "workspace_4" :onclick `echo 'screen[1].tags[4]:view_only()' | awesome-client` "")))
+(defpoll currentWorkspace :interval ".1s" `echo 'local awful = require("awful"); return awful.tag.selected(1).name' | awesome-client | awk -F'[^0-9]*' '{print $2}'`)
+
+(defwidget volume []
+    (eventbox :onhover "${eww} update volume=true" :onhoverlost "${eww} update volume=false"
+        (box :orientation "v" :space-evenly "false"
+            (revealer :transition "slideup" :duration "300ms" :reveal volume
+                (scale :class "volume_bar" :orientation "v" :flipped "true" :max 100 :min 0 :value currentVolume :onchange "amixer -D pulse sset Master {}%"))
+    (button :class "volume_icon" :onclick "" ""))))
+(defpoll currentVolume :interval "1s" "amixer -D pulse sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
+(defvar volume false)
+(defwidget brightness []
+    (eventbox :onhover "${eww} update brightness=true" :onhoverlost "${eww} update brightness=false"
+        (box :orientation "v" :space-evenly "false"
+            (revealer :transition "slideup" :duration "300ms" :reveal brightness
+                (scale :class "brightness_bar" :orientation "v" :flipped "true" :max 100 :min 0 :value currentBrightness :onchange "brightnessctl set {}%"))
+    (button :class "brightness_icon" :onclick "" ""))))
+(defpoll currentBrightness :interval "1s" "brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%'")
+(defvar brightness false)
+(defwidget control []
+    (box :class "control" :orientation "v" :halign "center" :spacing 8 :space-evenly "false"
+        (volume)
+        (brightness)
+        (label :class "battery_icon" :text "󰁹")
+        (button :class "bluetooth_icon" "󰂯")
+        (button :class "wifi_icon" "")))
+
+(defwidget time []
+    (box :class "time" :orientation "v" :space-evenly "false" :valign "end" :spacing "-3"
+        (label :halign "center" :text hour)
+        (label :halign "center" :text minute)))
+(defpoll hour :interval "5s" `date +\"%H\"`)
+(defpoll minute :interval "5s" `date +\"%M\"`)
+
+(defwidget power []
+    (eventbox :onhover "${eww} update power=true" :onhoverlost "${eww} update power=false"
+        (box :class "powermenu" :orientation "v" :space-evenly "false" :valign "end"
+            (revealer :transition "slideup" :duration "300ms" :reveal power
+                (box :class "other-power-btns" :orientation "v" :space-evenly "false" :spacing 5
+                    (button :class "exit_icon" :onclick "echo 'awesome.quit()' | awesome-client" "󰍃")
+                    (button :class "sleep_icon" :onclick "systemctl sleep" "󰤄")
+                    (button :class "lock_icon" "󰌾")
+                    (button :class "reboot_icon" :onclick "systemctl reboot" "󰑐")))
+            (button :class "power-btn" :onclick "systemctl poweroff" "󰐥"))))
+(defvar power false)
+
+(defwidget bar []
+    (box :class "bar" :orientation "v"
+        (box :class "top"
+            (workspaces))
+        (box :class "bottom" :orientation "v" :space-evenly "false" :valign "end"
+            (control)
+            (time)
+            (power))))
+
+
+
+(defwindow bar
+    :geometry (geometry :x "0"
+                        :y "0"
+                        :height "100%"
+                        :width "50px")
+    :monitor 0
+    :reserve (struts :distance "50px" :side "left")
+    :wm-ignore false
+    :hexpand "false"
+    :vexpand "false"
+(bar))

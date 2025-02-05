@@ -1,5 +1,5 @@
 { pkgs, ... }:
-{  
+{
     hardware = {
         graphics = {
             enable = true;
@@ -9,11 +9,18 @@
             ];
         };
         nvidia = {
+          powerManagement.enable = false;
     	    modesetting.enable = true;
-	        open = false;
+	        open = true;
 	        nvidiaSettings = true;
         };
+        opengl = {
+          extraPackages = with pkgs; [
+            mesa.drivers
+            #libglvnd
+          ];
+        };
     };
-    services.xserver.videoDrivers = ["nvidia"];
+    services.xserver.videoDrivers = ["nouveau"];
     hardware.enableRedistributableFirmware = true;
 }

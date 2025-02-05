@@ -1,6 +1,8 @@
 { inputs, pkgs, ... }:
 {
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+    enable = true;
+  };
   xdg.portal = {
     enable = true;
     wlr.enable = true;
@@ -10,7 +12,11 @@
       pkgs.xdg-desktop-portal-gtk
     ];
   };
-
+  environment.sessionVariables = {
+    MOZ_ENABLE_WAYLAND = "1";
+    QT_QPA_PLATFORM = "wayland";
+    SDL_VIDEODRIVER = "wayland";
+  };
   environment.systemPackages = with pkgs; [
     # xwaylandvideobridge
   ];

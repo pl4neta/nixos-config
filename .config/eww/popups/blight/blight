@@ -1,0 +1,2 @@
+#!/bin/bash
+LC_NUMERIC="en_US.UTF-8" printf "%.0f\n" $(light)
