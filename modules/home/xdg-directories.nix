@@ -1,16 +1,16 @@
 { pkgs, ... }:
 {
 environment.etc."xdg/user-dirs.defaults".text = ''
-  DESKTOP=${home}/system/desktop
-  DOWNLOAD=${home}/downloads
-  TEMPLATES=${home}/system/templates
-  PUBLICSHARE=${home}/system/public
-  DOCUMENTS=${home}/documents
-  MUSIC=${home}/media/music
-  PICTURES=${home}/media/photos
-  VIDEOS=${home}/media/video
+  DESKTOP=${HOME}/system/desktop
+  DOWNLOAD=${HOME}/downloads
+  TEMPLATES=${HOME}/system/templates
+  PUBLICSHARE=${HOME}/system/public
+  DOCUMENTS=${HOME}/documents
+  MUSIC=${HOME}/media/music
+  PICTURES=${HOME}/media/photos
+  VIDEOS=${HOME}/media/video
 '';
-environment.etc.sessionVariables = {
+environment.sessionVariables = {
     XDG_CONFIG_HOME = "${HOME}/.dotfiles/.config";
 };
 }

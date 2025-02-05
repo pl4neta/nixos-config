@@ -9,8 +9,8 @@
 
 
             monitor = [
-                "eDP-1, 1920x1080, 0x0, 1"
-                "HDMI-A-1, 1920x1080, 1920x0, 1"
+                "eDP-1, preferred, -1920x320, 1"
+                "HDMI-A-1, 2560x1440@144, 0x0, 1"
             ];
 
             env = [
@@ -104,9 +104,9 @@
             };
             
         workspace = [
-            "r[1-9],monitor:eDP-1"
+            "r[1-9],monitor:HDMI-A-1"
             "1,default:true"
-            "10,monitor:HDMI-A-1,default:true"
+            "10,monitor:eDP-1,default:true"
 	];
 
             windowrulev2 = [

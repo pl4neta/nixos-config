@@ -118,6 +118,7 @@
 	inputs.hyprpanel.packages."${system}".default
 	inputs.nixvim.packages."${system}".default
 	vesktop
+	discord
 
 	rustup
 	gcc
