@@ -7,9 +7,6 @@
       windowManager.awesome.enable = true;
       enable = true;
       displayManager = {
-        setupCommands = ''
-          ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-0 --output eDP-1 --left-of HDMI-0
-        '';
         gdm = {
           enable = true;
           wayland = true;
@@ -21,7 +18,6 @@
             name = "Hyprland";
             manage = "window";
             start = ''
-              export XDG_SESSION_TYPE=wayland
               ${pkgs.hyprland}/bin/hyprland -ls &
               waitPID=$!
             '';
@@ -30,7 +26,6 @@
             name = "Awesome";
             manage = "window";
             start = ''
-              export XDG_SESSION_TYPE=x11
               ${pkgs.awesome}/bin/awesome
               waitPID=$!
             '';

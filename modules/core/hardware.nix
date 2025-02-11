@@ -11,16 +11,15 @@
         nvidia = {
           powerManagement.enable = false;
     	    modesetting.enable = true;
-	        open = true;
+	        open = false;
 	        nvidiaSettings = true;
         };
         opengl = {
           extraPackages = with pkgs; [
-            mesa.drivers
-            #libglvnd
+            libglvnd
           ];
         };
     };
-    services.xserver.videoDrivers = ["nouveau"];
+    services.xserver.videoDrivers = ["nvidia"];
     hardware.enableRedistributableFirmware = true;
 }
