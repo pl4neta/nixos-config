@@ -1,25 +1,16 @@
 { pkgs, ... }:
 {
-    hardware = {
-        graphics = {
-            enable = true;
-            enable32Bit = true;
-            extraPackages = with pkgs; [
-    
-            ];
-        };
-        nvidia = {
-          powerManagement.enable = false;
-    	    modesetting.enable = true;
-	        open = false;
-	        nvidiaSettings = true;
-        };
-        opengl = {
-          extraPackages = with pkgs; [
-            libglvnd
-          ];
-        };
+  hardware = {
+    graphics = {
+      enable = true;
+      enable32Bit = true;
+      extraPackages = with pkgs; [
+        amdvlk
+          mesa
+          libva
+      ];
     };
-    services.xserver.videoDrivers = ["nvidia"];
-    hardware.enableRedistributableFirmware = true;
+  };
+  services.xserver.videoDrivers = ["amdgpu"];
+  hardware.enableRedistributableFirmware = true;
 }

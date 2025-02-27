@@ -130,49 +130,6 @@ local function osExecute(cmd)
 	return commandOutput
 end
 
-local function batCheck()
-	--local perc = osExecute('acpi | awk -F \',\' \'{sub(" ","",$2);sub("%","",$2);print$2}\'')
-	--io.input('acpi | awk -F \',\' \'{sub(" ","",$2);sub("%","",$2);print$2}\'')
-	--local perc = io.read('*all')
-	local fperc = assert(io.popen('acpi | awk -F \',\' \'{sub(" ","",$2);sub("%","",$2);print$2}\''))
-	local perc = fperc:read('*number')
-	batterywidget.text= perc..'%'
-
-	fstatus = assert(io.popen('acpi | cut -d: -f 2,2 | cut -d, -f 1,1', 'r'))
-	local status = fstatus:read('*l')
-	if status == ' Discharging' then
-		if perc <= 20 then
-			batteryicon:set_image(beautiful.widget_bat_very_low)
-		elseif perc <= 40 then
-			batteryicon:set_image(beautiful.widget_bat_low)
-		elseif perc <= 60 then
-			batteryicon:set_image(beautiful.widget_bat_med)
-		elseif perc <= 80 then
-			batteryicon:set_image(beautiful.widget_bat_high)
-		else
-			batteryicon:set_image(beautiful.widget_bat_full)
-		end
-	else
-		if perc < 100 then
-			batteryicon:set_image(beautiful.widget_bat_charging_empty)
-		else
-			batteryicon:set_image(beautiful.widget_bat_charging_full)
-		end
-	end
-	
-	fperc:close()
-	fstatus:close()
-end
-
-batterywidget = wibox.widget.textbox()
-batteryicon = wibox.widget.imagebox()
-
-batterywidgettimer = timer({ timeout = 5 })
-
-batCheck()
-
-batterywidgettimer:connect_signal('timeout', function()	batCheck() end)
-batterywidgettimer:start()
 
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()

@@ -1,7 +1,13 @@
 { pkgs, username, ... }: 
+let
+ compiledLayout = pkgs.runCommand "keyboard-layout" {} ''
+        ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${../../.config/xkb/layout.xkb} $out
+      '';
+in
 {
+  services.xserver.displayManager.sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY";
 
-
+  services.displayManager.defaultSession = "none+Hyprland";
   services = {
     xserver = {
       windowManager.awesome.enable = true;
@@ -12,7 +18,6 @@
           wayland = true;
           autoSuspend = false;
         };
-        defaultSession = "none+Hyprland";
         session = [
           {
             name = "Hyprland";
@@ -32,7 +37,17 @@
           }
         ];
       };
-      xkb.layout = "pt";
+      
+      #xkb = {
+        #layout = "pt";
+      #  layout = "carrak";
+      #  variant = "usde";
+      #  extraLayouts.carrak = {
+      #    languages = ["por" "eng"];
+      #    description = "test";
+      #    symbolsFile = ../../.config/xkb/symbols/carrak;
+      #  };
+      #};
     };
 
     #displayManager.autoLogin = {

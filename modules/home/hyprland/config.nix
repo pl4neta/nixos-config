@@ -8,10 +8,7 @@
 	    "$menu" = "rofi -config ~/.dotfiles/.config/rofi/config -show drun -theme ~/.dotfiles/.config/rofi/style.rasi";
 
 
-            monitor = [
-                "eDP-1, 1920x1080@60, -1920x320, 1"
-                "HDMI-A-1, 2560x1440@144, 0x0, 1"
-            ];
+            monitor = "DP-2, 2560x1440@180, 0x0, 1";
 
             env = [
                 "XCURSOR_SIZE,24"
@@ -20,7 +17,8 @@
             ];
 
             input = {
-                kb_layout = "pt";
+                kb_layout = "us";
+                kb_variant = "intl";
 
                 follow_mouse = 1;
                 
@@ -80,6 +78,10 @@
                 ];
             };
 
+            debug = {
+              disable_logs = false;
+            };
+
             dwindle = {
                 pseudotile = true;
                 preserve_split = true;
@@ -103,12 +105,6 @@
                 sensitivity = -0.5;
             };
             
-        workspace = [
-            "r[1-9],monitor:HDMI-A-1"
-            "1,default:true"
-            "10,monitor:eDP-1,default:true"
-	];
-
             windowrulev2 = [
                 "suppressevent maximize, class:.*"
             ];
@@ -173,20 +169,19 @@
                 # own binds
 		"$mainMod, F, fullscreen, 2"
 		"$mainMod, M, fullscreen, 1"
-                "$mainMod, Escape, exec, swaylock"
-                "$mainMod Shift, Escape, exec, hyprlock"
+                "$mainMod, Escape, exec, hyprlock"
                 "$mainMod Shift, B, exec, toggle_waybar"
                 #"$mainMod, N, swaync-client -t -sw"
                 # playerctl
-                ",code:172, exec, playerctl --player=playerctld play-pause"
-                ",code:174, exec, playerctl --player=playerctld stop"
-                ",code:171, exec, playerctl --player=playerctld next"
-                ",code:173, exec, playerctl --player=playerctld previous"
+                ", code:172, exec, playerctl --player=playerctld play-pause"
+                ", code:174, exec, playerctl --player=playerctld stop"
+                ", code:171, exec, playerctl --player=playerctld next"
+                ", code:173, exec, playerctl --player=playerctld previous"
                 #audio output
-                "$mainMod, code:67, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+                ", code:121, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
                 #eww
                 #dashboard
-                "$mainMod, Tab, exec, ~/.config/eww/dashboard/launch_dashboard"
+                "$mainMod, Tab, exec, ~/.dotfiles/.config/eww/dashboard/launch_dashboard"
 								## Screenshot
 								"CTRL, Print, exec, grimshot --notify save screen images/screenshots/$(TZ=gmt date +'screenshot_%Y-%m-%d_%H-%M-%S.%3N.png')" # All visible outputs
 								"CTRL SHIFT, Print, exec, grimshot --notify save area images/screenshots/$(TZ=gmt date +'screenshot_%Y-%m-%d_%H-%M-%S.%3N.png')" # Manually select a region
@@ -205,11 +200,11 @@
             binde = [
                 #own binds
                 #brightness
-                "$mainMod, code:71, exec, brightnessctl -d intel_backlight s 5%-"
-                "$mainMod, code:72, exec, brightnessctl -d intel_backlight s +5%"
+                ", code:232, exec, brightnessctl -d intel_backlight s 5%-"
+                ", code:233, exec, brightnessctl -d intel_backlight s +5%"
                 #audio output
-                "$mainMod, code:68, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
-                "$mainMod, code:69, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
+                ", code:122, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
+                ", code:123, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
             ];
         };
     };

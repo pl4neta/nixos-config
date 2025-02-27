@@ -1,4 +1,4 @@
-(defvar eww "`which eww` -c $HOME/.config/eww/bar")
+(defvar eww "`which eww` -c $HOME/.dotfiles/.config/eww/bar")
 
 
 (defwidget workspaces []

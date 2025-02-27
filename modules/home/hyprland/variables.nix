@@ -1,6 +1,7 @@
 { ... }:
 {
   home.sessionVariables = {
+    XDG_CONFIG_HOME = "$HOME/.dotfiles/.config/";
     NIXOS_OZONE_WL = "1";
     __GL_GSYNC_ALLOWED = "0";
     __GL_VRR_ALLOWED = "0";
@@ -25,8 +26,8 @@
     CLUTTER_BACKEND = "wayland";
     GTK_THEME = "Catppuccin-Macchiato";
 
-    LIBVA_DRIVER_NAME = "nvidia";
-    GBM_BACKEND = "nvidia-drm";
-    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    #LIBVA_DRIVER_NAME = "nvidia";
+    #GBM_BACKEND = "nvidia-drm";
+    #__GLX_VENDOR_LIBRARY_NAME = "nvidia";
   };
 }

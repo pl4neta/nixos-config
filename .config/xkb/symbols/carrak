@@ -1,0 +1,12 @@
+partial alphanumeric_keys
+xkb_symbols "usde" {
+
+   include "us(alt-intl)"
+
+   key <TLDE> { [ dead_grave, asciitilde, section,    plusminus    ] };
+   key <AC02> { [          s,          S,  ssharp,    U1E9E        ] };
+   key <AB03> { [          c,          C,    cent,    copyright    ] };
+
+   include "level3(ralt_switch)"
+
+};

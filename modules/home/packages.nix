@@ -1,5 +1,6 @@
 { inputs, pkgs, ... }: 
 {
+  home.keyboard = null;
   home.packages = with pkgs; [
 
     ## CLI utility
@@ -134,5 +135,10 @@
 	ani-cli
 
 	scarab #hollow knight mod manager
+
+  xorg.xkbcomp
+
+  usbutils
+  nut
   ];
 }
