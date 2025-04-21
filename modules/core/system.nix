@@ -19,6 +19,26 @@
   environment.systemPackages = with pkgs; [
     wget
     git
+
+    vulkan-tools
+    mangohud
+    goverlay
+    libva
+    libva-utils
+    mesa
+    mesa.drivers
+    mesa-demos
+    pciutils
+    glxinfo
+    xorg.xrandr
+    xorg.libXrandr
+    xorg.libX11
+    xorg.xinput
+    steam-run
+    wineWowPackages.stable
+    winetricks
+    gamemode
+    lutris
   ];
 
   time.timeZone = "Europe/Lisbon";

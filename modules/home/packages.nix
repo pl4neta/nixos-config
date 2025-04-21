@@ -140,5 +140,7 @@
 
   usbutils
   nut
+
+  xorg.xrandr
   ];
 }

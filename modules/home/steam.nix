@@ -5,7 +5,12 @@
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = false;
+    dedicatedServer.openFirewall = true;
+    extraCompatPackages = with pkgs; [
+      protontricks
+      steamcmd
+      steam-run
+    ];
   };
   #programs.gamemode.enable = true;
   #nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
