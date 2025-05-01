@@ -26,7 +26,7 @@
     #snes9x
     # cemu
     # dolphin-emu
-    rpcs3
+    #rpcs3
     heroic
   ];
 }
