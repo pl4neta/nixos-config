@@ -20,10 +20,10 @@ in
 	newReleases
      ];
      enabledExtensions = with spicePkgs.extensions; [
-      ({
+      {
         src = ../../.config/spicetify/extensions;
         name = "allOfArtist.js";
-      })
+      }
        adblock
        fullAppDisplay
        loopyLoop
@@ -34,11 +34,11 @@ in
        goToSong
        listPlaylistsWithSong
        playlistIntersection
-       skipStats
+       #skipStats spotify update broke context menu
        phraseToPlaylist
        songStats
        showQueueDuration
-       copyToClipboard
+       #copyToClipboard spotify update broke context menu
        history
        lastfm
        #genre
