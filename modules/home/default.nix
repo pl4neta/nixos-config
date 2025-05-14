@@ -21,5 +21,7 @@
     ./zsh.nix                         # shell
 		./lf.nix
     ./awesome.nix
+    ./mpd.nix
+    ./ncmpcpp.nix
   ];
 }
