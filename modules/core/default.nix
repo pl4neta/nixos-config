@@ -1,4 +1,3 @@
-{ inputs, nixpkgs, self, username, host, ...}:
 {
   imports = [
     ./bootloader.nix
@@ -16,5 +15,6 @@
     ./virtualization.nix
     ./bluetooth.nix
     ./postgresql.nix
+    ./shell.nix
   ];
 }
