@@ -6,6 +6,11 @@
     dbus.enable = true;
     fstrim.enable = true;
     blueman.enable = true;
+    avahi = {
+      enable = true;
+      nssmdns = true;
+      openFirewall = true;
+    };
   };
   services.logind.extraConfig = ''
     # don’t shutdown when power button is short-pressed
