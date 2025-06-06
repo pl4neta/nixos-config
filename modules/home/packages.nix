@@ -142,5 +142,8 @@
   nut
 
   xorg.xrandr
+
+  fuse
+  fuse3
   ];
 }

@@ -11,6 +11,7 @@
       pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
     ];
+    config.common.default = "hyprland";
   };
   environment.sessionVariables = {
     MOZ_ENABLE_WAYLAND = "1";
