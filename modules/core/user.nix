@@ -17,9 +17,9 @@
     };
   };
 
-  users.users.${username} = {
+  users.users.pl4neta = {
     isNormalUser = true;
-    description = "${username}";
+    home = "/home/pl4neta";
     extraGroups = [ "networkmanager" "wheel" "disk" "plugdev"];
     shell = pkgs.zsh;
   };
