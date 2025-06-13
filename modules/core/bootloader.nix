@@ -7,6 +7,7 @@
 			systemd-boot.configurationLimit = 10;
 		};
 		initrd.kernelModules = [ "amdgpu" ];
+    kernelModules = [ "usbnet rndis_host" ];
 		kernelParams = [
       #"radeon.si_support=0"
       #"amdgpu.si_support=1"

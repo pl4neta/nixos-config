@@ -23,5 +23,6 @@
     ./awesome.nix
     ./mpd.nix
     ./ncmpcpp.nix
+    ./polkit.nix
   ];
 }

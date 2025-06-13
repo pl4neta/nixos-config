@@ -147,5 +147,7 @@
   fuse3
 
   transmission_4-qt
+  
+  appimage-run
   ];
 }

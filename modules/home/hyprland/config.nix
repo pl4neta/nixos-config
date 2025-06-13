@@ -112,6 +112,7 @@
             exec-once = [
                 #"swww-daemon &"
                 #"waybar &"
+                "systemctl --user start hyprpolkitagent"
                 "hyprpanel &"
                 "swaybg -m fill -i .dotfiles/wallpapers/perfect-blue.jpeg &"
                 #"hyprlock"

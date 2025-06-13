@@ -13,5 +13,7 @@
 
   environment.systemPackages = with pkgs; [
     networkmanagerapplet
+    iproute2
+    networkmanager
   ];
 }
