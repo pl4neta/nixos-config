@@ -149,5 +149,7 @@
   transmission_4-qt
   
   appimage-run
+
+  htop
   ];
 }
