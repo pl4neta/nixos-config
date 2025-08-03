@@ -23,6 +23,11 @@
       ];
     };
   };
+  environment.systemPackages = with pkgs; [
+    vulkan-tools
+    mesa
+    driversi686Linux.mesa
+  ];
   services.xserver.videoDrivers = ["amdgpu"];
   hardware.enableRedistributableFirmware = true;
 }
