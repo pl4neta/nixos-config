@@ -153,5 +153,7 @@
   htop
 
   wdisplays
+
+  libreoffice
   ];
 }
