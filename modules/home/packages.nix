@@ -100,7 +100,6 @@
         playerctl
         #qemu
         qjackctl
-        rofi-wayland
         signal-desktop
 	steam
         sunshine

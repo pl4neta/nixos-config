@@ -14,7 +14,7 @@
     vitetris
     
     ## Celeste
-    celeste-classic
+    #celeste-classic error
     #celeste-classic-pm
 
     ## Doom
