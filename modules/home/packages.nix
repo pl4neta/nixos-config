@@ -154,5 +154,7 @@
   wdisplays
 
   libreoffice
+  
+  thunderbird
   ];
 }
