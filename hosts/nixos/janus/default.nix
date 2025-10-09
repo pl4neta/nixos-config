@@ -9,6 +9,7 @@
     (map lib.custom.relativeToRoot [
       "hosts/common/core"
 
+      "hosts/common/optional/plymouth.nix"
       #"hosts/common/optional/steam.nix"
     ])
   ];
