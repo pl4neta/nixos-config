@@ -16,6 +16,7 @@
     ./btop.nix
     ./fastfetch.nix
     ./fzf.nix
+    ./git.nix
     ./gtk.nix
     ./kitty.nix
     ./lf.nix
@@ -40,7 +41,6 @@
     ];
     sessionVariables = {
       FLAKE = "$HOME/projects/nix/nix-config";
-      SHELL = "bash";
     };
   };
 

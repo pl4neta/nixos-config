@@ -12,7 +12,7 @@ in
 {
   users.users.${hostSpec.username} = {
     name = hostSpec.username;
-    shell = pkgs.bash;
+    shell = pkgs.zsh;
 
     openssh.authorizedKeys.keys = lib.lists.forEach pubKeys (key: builtins.readFile key);
   };
