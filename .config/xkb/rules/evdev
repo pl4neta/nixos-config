@@ -1,4 +1,0 @@
-! option   = symbols
-  carrak:usde  = +carrak(usde)
-
-! include %S/evdev

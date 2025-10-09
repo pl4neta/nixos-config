@@ -1,73 +1,63 @@
 {
-  description = "Pl4neta's nixos configuration";
+  description = "pl4neta's nix-config";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nur.url = "github:nix-community/NUR";
-  
-    hypr-contrib.url = "github:hyprwm/contrib";
-    hyprpicker.url = "github:hyprwm/hyprpicker";
-  
-    alejandra.url = "github:kamadorueda/alejandra/3.0.0";
-  
-    nix-gaming.url = "github:fufexan/nix-gaming";
-  
-    hyprland = {
-      type = "git";
-      url = "https://github.com/hyprwm/Hyprland";
-      submodules = true;
-    };
-  
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+
+    hardware.url = "github:nixos/nixos-hardware";
     home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    
-    spicetify-nix = {
-      url = "github:gerg-l/spicetify-nix";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-    };
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    spicetify-nix.url = "github:gerg-l/spicetify-nix";
 
-    hyprpanel = {
-        url = "github:Jas-SinghFSU/HyprPanel";
-    };
-
-	nixvim = {
-		url = "github:Pl4neta/nixvim-config";
-	};
+    nixvim.url = "github:Pl4neta/nixvim-config";
   };
 
-  outputs = { nixpkgs, self, ...} @ inputs:
-  let
-    username = "pl4neta";
-    system = "x86_64-linux";
-    pkgs = import nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-unstable,
+      ...
+    }@inputs:
+    let
+      inherit (self) outputs;
+
+      forAllSystems = nixpkgs.lib.genAttrs [
+        "x86_64-linux"
+      ];
+
+      pkgsUnstableFor = forAllSystems (system:
+        import nixpkgs-unstable {
+	  inherit system;
+          config.allowUnfree = true;
+      });
+
+      lib = nixpkgs.lib.extend (self: super: { custom = import ./lib { inherit (nixpkgs) lib; }; });
+    in
+    {
+      overlays = import ./overlays { inherit inputs; };
+
+      nixosConfigurations = builtins.listToAttrs (
+        map (host: {
+          name = host;
+          value = nixpkgs.lib.nixosSystem {
+            specialArgs = {
+              inherit inputs outputs lib;
+              pkgsUnstable = pkgsUnstableFor.${builtins.currentSystem or "x86_64-linux"};
+            };
+            modules = [ ./hosts/nixos/${host} ];
+          };
+        }) (builtins.attrNames (builtins.readDir ./hosts/nixos))
+      );
+
+      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+
     };
-    lib = nixpkgs.lib;
-  in
-  {
-    nixosConfigurations = {
-      desktop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [ ./hosts/desktop ];
-        specialArgs = { host="desktop"; inherit self inputs username ; };
-      };
-      laptop = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [ ./hosts/laptop ];
-        specialArgs = { host="laptop"; inherit self inputs username ; };
-      };
-       vm = nixpkgs.lib.nixosSystem {
-        inherit system;
-        modules = [ ./hosts/vm ];
-        specialArgs = { host="vm"; inherit self inputs username ; };
-      };
-    };
-  };
 }
