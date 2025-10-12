@@ -12,10 +12,14 @@
         mkdir $DIR
       }}
       '';
-#cmd trash %set -f; mv $fx ~/.trash
-      trash =  ''%trash-put $fx'';
-
-# define a custom 'delete' command
+      touch = ''
+      ''${{
+        printf "File Name: "
+        read file
+        touch $file
+      }}
+      '';
+      trash =  ''%trash put $fx'';
       delete = ''
       ''${{
       set -f
@@ -33,10 +37,11 @@
       "<s-delete>" = "delete";
 
       c = "mkdir";
+      t = "touch";
       "." = "set hidden!";
       "<enter>" = "open";
       
-      ee = "editor-open";
+      e = "editor-open";
       V = ''$${pkgs.bat}/bin/bat --paging=always "$f"'';
 
       # ...

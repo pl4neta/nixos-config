@@ -2,11 +2,11 @@
 with lib;
 let
   defaultApps = {
-    browser = [ "zen.desktop" ];
-    text = [ "org.gnome.TextEditor.desktop" ];
+    browser = [ "zen-beta.desktop" ];
+    text = [ "nvim.desktop" ];
     image = [ "qimgv.desktop" ];
-    audio = [ "mpv.desktop" ];
-    video = [ "mpv.desktop" ];
+    audio = [ "vlc.desktop" ];
+    video = [ "vlc.desktop" ];
     directory = [ "lf.desktop" ];
     office = [ "libreoffice.desktop" ];
     pdf = [ "mupdf.desktop" ];

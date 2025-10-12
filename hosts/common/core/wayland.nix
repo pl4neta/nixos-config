@@ -5,8 +5,8 @@
   };
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
-    xdgOpenUsePortal = true;
+    wlr.enable = false;
+    xdgOpenUsePortal = false;
     extraPortals = [
       pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
