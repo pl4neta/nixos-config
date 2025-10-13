@@ -1,7 +1,5 @@
 { pkgs, ... }: 
 {
-  #home.file.".ssh/allowed_signers".text=
-  #  "* ${builtins.readFile ~/.ssh/id_ed25519.pub}";
   programs.git = {
     enable = true;
     
@@ -10,26 +8,17 @@
     
     extraConfig = { 
       init.defaultBranch = "master";
-      merge.conflictstyle = "diff3";
-      diff.colorMoved = "default";
-
       commit.gpgsign = true;
       gpg.format = "ssh";
-      #gpg.ssh.allowedSignersFile = "~/.ssh/allowed_signers";
-      user.signingkey = "~/.ssh/id_ed25519.pub";
-    };
-
-    delta = {
-      enable = true;
-      options = {
-        line-numbers = true;
-        # side-by-side = true;
-        navigate = true;
-      };
+      gpg.ssh.defaultKeyCommand = "ssh-add -L | head -n1";
     };
   };
 
-  home.packages = [ pkgs.gh ]; # pkgs.git-lfs
+  home.packages = with pkgs; [
+    gh
+    lazygit
+    onefetch
+  ];
 
   programs.zsh.shellAliases = {
     g     = "lazygit";
@@ -40,6 +29,7 @@
     gb    = "git branch";
     gm    = "git merge";
     gd    = "git diff";
+    gdp   = "git diff HEAD~1 HEAD";
     gpl   = "git pull";
     gplo  = "git pull origin";
     gps   = "git push";
