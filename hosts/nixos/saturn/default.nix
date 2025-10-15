@@ -15,7 +15,7 @@
   ];
 
   hostSpec = {
-    hostName = "janus";
+    hostName = "saturn";
   };
 
   networking = {
