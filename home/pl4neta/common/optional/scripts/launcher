@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROFI_BIN=$(command -v rofi)
+ROFI_THEME="$HOME/.config/rofi/style.rasi"
+DESKTOP_DIR="$HOME/.local/share/applications/all"
+HIST_FILE="$HOME/.local/share/rofi-apps-history"
+
+# Update history after launch
+update_history() {
+    local app="$1"
+    grep -v "^$app$" "$HIST_FILE" 2>/dev/null > "$HIST_FILE.tmp" || true
+    echo "$app" >> "$HIST_FILE.tmp"
+    mv "$HIST_FILE.tmp" "$HIST_FILE"
+}
+
+# --- Generate app list from .desktop files ---
+apps=()
+for f in $(find -L "$DESKTOP_DIR" -type f -name '*.desktop'); do
+    name=$(awk -F= '/^Name=/ {print substr($0,index($0,$2)); exit}' "$f" | xargs)
+    exec=$(awk -F= '/^Exec=/ {print substr($0,index($0,$2)); exit}' "$f" | sed 's/%.//g' | xargs)
+    wmclass=$(awk -F= '/^StartupWMClass=/ {print substr($0,index($0,$2)); exit}' "$f" | xargs)
+    [[ -n "$name" && -n "$exec" ]] && apps+=("$name|$exec|$wmclass")
+done
+
+# --- Show Rofi menu ---
+# Generate menu sorted by usage
+menu=$(printf '%s\n' "${apps[@]}" | awk -F'|' '{print $1}' | sort -u | awk -v hist="$HIST_FILE" '
+    BEGIN {
+        while ((getline line < hist) > 0) freq[line]++
+    }
+    {print $0, freq[$0]+0}
+' | sort -k2,2nr | awk '{print $1}')
+choice=$(echo "$menu" | "$ROFI_BIN" -dmenu -i -p "Launch / Focus:" -theme "$ROFI_THEME")
+[ -z "$choice" ] && exit 0
+
+# --- Find selected entry ---
+entry=$(printf '%s\n' "${apps[@]}" | grep -m1 "^$choice|")
+IFS='|' read -r _name exec_line wmclass <<<"$entry"
+
+# --- Determine WMClass ---
+[ -z "$wmclass" ] && wmclass=$(basename "$(echo "$exec_line" | awk '{print $1}')")
+
+# --- Check if app is already running ---
+clients=$(hyprctl clients -j)
+existing_ws=$(echo "$clients" | jq -r --arg C "$wmclass" \
+    '.[] | select(.class|test($C;"i")) | .workspace.name' | head -n1)
+
+if [ -n "$existing_ws" ]; then
+    hyprctl dispatch workspace "$existing_ws"
+    exit 0
+fi
+
+# --- Launch in new workspace ---
+next_ws=$(hyprctl workspaces -j | jq '[.[].id] | max + 1' 2>/dev/null || echo 1)
+hyprctl dispatch workspace "$next_ws"
+setsid sh -c "$exec_line" >/dev/null 2>&1 &
+

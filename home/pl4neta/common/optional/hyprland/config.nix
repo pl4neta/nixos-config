@@ -5,7 +5,7 @@
             "$mainMod" = "SUPER";
 	    "$terminal" = "kitty";
 	    "$fileManager" = "thunar";
-	    "$menu" = "rofi -config ~/.dotfiles/.config/rofi/config -show drun -theme ~/.dotfiles/.config/rofi/style.rasi";
+	    "$menu" = "launcher";
 
 
             monitor = "DP-2, 2560x1440@180, 0x0, 1";

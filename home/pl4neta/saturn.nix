@@ -3,6 +3,8 @@
   imports = [
     common/core
 
+    common/optional/scripts.nix
+    common/optional/launcher
     common/optional/hyprland
     common/optional/swaync/swaync.nix
     common/optional/mpd.nix

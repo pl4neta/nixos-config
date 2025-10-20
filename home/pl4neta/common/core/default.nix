@@ -20,7 +20,6 @@
     ./gtk.nix
     ./kitty.nix
     ./lf.nix
-    ./rofi.nix
     ./ssh.nix
     ./starship.nix
     ./xdg-directories.nix
