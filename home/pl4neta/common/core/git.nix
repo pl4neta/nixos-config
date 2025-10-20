@@ -37,8 +37,9 @@
     gpst  = "git push --follow-tags";
     gcl   = "git clone";
     gc    = "git commit";
+    gca   = "git commit --ammend";
     gcm   = "git commit -m";
-    gcma  = "git add --all && git commit -m";
+    gacm  = "git add --all && git commit -m";
     gtag  = "git tag -ma";
     gch   = "git checkout";
     gchb  = "git checkout -b";
