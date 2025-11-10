@@ -23,9 +23,16 @@ in
       {
         src = builtins.fetchTarball {
           url = "https://github.com/pl4neta/allOfArtist/archive/refs/heads/main.tar.gz";
-	  sha256 = "03mky6830jvkmzsswpnpkxq5brflqffzaw29jjfkhd8bdz1afq5s";
-	};
+          sha256 = "0arj24ylkkcgwxr4c7124vxwvmlvnhd2h67q5pmscz9gnhcig9ns";
+        };
         name = "allOfArtist.js";
+      }
+      {
+        src = builtins.fetchTarball {
+          url = "https://github.com/Maskowh/spicetify-old-like-button-extension/archive/refs/heads/main.tar.gz";
+          sha256 = "1z0hzz1gikn0qgfjkyaaazjigpny5zgn6c4wgfjgnqgk653hfg7n";
+        };
+        name = "oldLikeButton.js";
       }
        adblock
        fullAppDisplay
