@@ -23,7 +23,8 @@ in
       {
         src = builtins.fetchTarball {
           url = "https://github.com/pl4neta/allOfArtist/archive/refs/heads/main.tar.gz";
-          sha256 = "0arj24ylkkcgwxr4c7124vxwvmlvnhd2h67q5pmscz9gnhcig9ns";
+          sha256 = "14l8fxaaipidj8kf1cd0s4iyd1r9xcb7sl3yln6c72w4lbhp8zmw";
+          #sha256 = "0000000000000000000000000000000000000000000000000000";
         };
         name = "allOfArtist.js";
       }
