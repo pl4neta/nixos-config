@@ -10,6 +10,7 @@
     common/optional/packages.nix
     common/optional/spicetify.nix
     common/optional/swaylock.nix
+    common/optional/morse
   ];
 
 }

@@ -111,6 +111,7 @@
                 "systemctl --user start hyprpolkitagent"
                 "hyprpanel &"
                 "swaybg -m fill -i .dotfiles/wallpapers/perfect-blue.jpeg &"
+                "~/bin/morse_daemon.py"
                 #"hyprlock"
             ];
 
@@ -164,8 +165,8 @@
                 "$mainMod, mouse_up, workspace, e-1"
 
                 # own binds
-		"$mainMod, F, fullscreen, 2"
-		"$mainMod, M, fullscreen, 1"
+                "$mainMod, F, fullscreen, 2"
+                "$mainMod, M, fullscreen, 1"
                 "$mainMod, Escape, exec, hyprlock"
                 "$mainMod Shift, B, exec, toggle_waybar"
                 #"$mainMod, N, swaync-client -t -sw"
@@ -174,8 +175,9 @@
                 ", code:174, exec, playerctl --player=playerctld stop"
                 ", code:171, exec, playerctl --player=playerctld next"
                 ", code:173, exec, playerctl --player=playerctld previous"
-                #audio output
+                #audio
                 ", code:121, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+                "$mainMod ALT, B, exec, echo on > /tmp/morse_pipe" 
                 #eww
                 #dashboard
                 "$mainMod, Tab, exec, ~/.dotfiles/.config/eww/dashboard/launch_dashboard"
@@ -202,6 +204,11 @@
                 #audio output
                 ", code:122, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%-"
                 ", code:123, exec, wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 5%+"
+            ];
+            bindr = [
+              #own binds
+              #audio
+              "$mainMod ALT, B, exec, echo off > /tmp/morse_pipe"
             ];
         };
     };
