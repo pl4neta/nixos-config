@@ -111,7 +111,7 @@
                 "systemctl --user start hyprpolkitagent"
                 "hyprpanel &"
                 "swaybg -m fill -i .dotfiles/wallpapers/perfect-blue.jpeg &"
-                "~/bin/morse_daemon.py"
+                #"~/bin/morse_daemon.py"
                 #"hyprlock"
             ];
 
