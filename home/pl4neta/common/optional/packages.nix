@@ -48,5 +48,7 @@
 	libreoffice
 
 	thunderbird
+
+    prismlauncher
   ];
 }
