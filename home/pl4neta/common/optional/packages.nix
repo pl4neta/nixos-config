@@ -16,7 +16,6 @@
         playerctl
         qjackctl
         signal-desktop
-	steam
         sunshine
         trashy
         unzip

@@ -29,7 +29,6 @@
     xorg.libXrandr
     xorg.libX11
     xorg.xinput
-    steam-run
     wineWowPackages.stable
     winetricks
     lutris

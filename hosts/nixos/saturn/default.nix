@@ -11,7 +11,7 @@
 
       "hosts/common/optional/firewall.nix"
       "hosts/common/optional/plymouth.nix"
-      #"hosts/common/optional/steam.nix"
+      "hosts/common/optional/steam.nix"
     ])
   ];
 
