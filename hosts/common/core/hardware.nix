@@ -5,7 +5,7 @@
       enable = true;
       enable32Bit = true;
       extraPackages = with pkgs; [
-        amdvlk
+        #amdvlk
         mesa
         mesa-demos
         #libva
@@ -16,7 +16,7 @@
         directx-headers
       ];
       extraPackages32 = with pkgs.pkgsi686Linux; [
-        amdvlk
+        #amdvlk
         mesa
         vulkan-loader
         libdrm

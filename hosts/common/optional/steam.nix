@@ -1,31 +1,16 @@
-#{ pkgs, pkgsUnstable, ... }: 
-#{
-#  programs.steam = {
-#    enable = true;
-#    package = pkgsUnstable.steam;
-#    remotePlay.openFirewall = true;
-#    dedicatedServer.openFirewall = true;
-#    extraCompatPackages = with pkgs; [
-#      protontricks
-#      steamcmd
-#      steam-run
-#    ];
-#  };
-#  programs.gamemode.enable = true;
-#}
-{ pkgs, pkgsUnstable, ... }:
+{ pkgs, ... }:
 {
   #hardware.xpadneo.enable = true;
 
   programs = {
     steam = {
       enable = true;
-      package = pkgsUnstable.steam;
+      package = pkgs.steam;
       protontricks = {
         enable = true;
-        package = pkgsUnstable.protontricks;
+        package = pkgs.protontricks;
       };
-      extraCompatPackages = [ pkgsUnstable.proton-ge-bin ];
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
     };
     # To run steam games in game mode, add the following to the game's properties within steam
     # `gamemoderun %command%`

@@ -2,13 +2,13 @@
   description = "pl4neta's nix-config";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     hardware.url = "github:nixos/nixos-hardware";
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -23,7 +23,7 @@
     {
       self,
       nixpkgs,
-      nixpkgs-unstable,
+      nixpkgs-stable,
       ...
     }@inputs:
     let
@@ -33,8 +33,8 @@
         "x86_64-linux"
       ];
 
-      pkgsUnstableFor = forAllSystems (system:
-        import nixpkgs-unstable {
+      pkgsStableFor = forAllSystems (system:
+        import nixpkgs-stable {
 	  inherit system;
           config.allowUnfree = true;
       });
@@ -42,15 +42,13 @@
       lib = nixpkgs.lib.extend (self: super: { custom = import ./lib { inherit (nixpkgs) lib; }; });
     in
     {
-      overlays = import ./overlays { inherit inputs; };
-
       nixosConfigurations = builtins.listToAttrs (
         map (host: {
           name = host;
           value = nixpkgs.lib.nixosSystem {
             specialArgs = {
               inherit inputs outputs lib;
-              pkgsUnstable = pkgsUnstableFor.${builtins.currentSystem or "x86_64-linux"};
+              pkgsStable = pkgsStableFor.${builtins.currentSystem or "x86_64-linux"};
             };
             modules = [ ./hosts/nixos/${host} ];
           };
