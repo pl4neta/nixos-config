@@ -101,8 +101,8 @@
                 sensitivity = -0.5;
             };
             
-            windowrulev2 = [
-                "suppressevent maximize, class:.*"
+            windowrule = [
+                "suppress_event maximize, match:class .*"
             ];
 
             exec-once = [
