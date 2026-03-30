@@ -24,7 +24,7 @@
     mesa.drivers
     mesa-demos
     pciutils
-    glxinfo
+    #glxinfo
     xorg.xrandr
     xorg.libXrandr
     xorg.libX11

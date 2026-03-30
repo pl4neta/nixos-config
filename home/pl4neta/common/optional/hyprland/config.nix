@@ -183,7 +183,7 @@
                 "$mainMod ALT, B, exec, echo on > /tmp/morse_pipe" 
                 #eww
                 #dashboard
-                "$mainMod, Tab, exec, ~/.dotfiles/.config/eww/dashboard/launch_dashboard"
+                "$mainMod, Tab, exec, quickshell -c woah"
 								## Screenshot
 								"CTRL, Print, exec, grimshot --notify save screen images/screenshots/$(TZ=gmt date +'screenshot_%Y-%m-%d_%H-%M-%S.%3N.png')" # All visible outputs
 								"CTRL SHIFT, Print, exec, grimshot --notify save area images/screenshots/$(TZ=gmt date +'screenshot_%Y-%m-%d_%H-%M-%S.%3N.png')" # Manually select a region
