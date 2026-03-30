@@ -8,7 +8,10 @@
 	    "$menu" = "rofi -config ~/.dotfiles/.config/rofi/config -show drun -theme ~/.dotfiles/.config/rofi/style.rasi";
 
 
-            monitor = "DP-2, 2560x1440@180, 0x0, 1";
+            monitor = [
+              "DP-2, 2560x1440@180, 0x0, 1"
+              "HDMI-A-1, preferred, auto, 1, mirror, DP-2"
+            ];
 
             env = [
                 "XCURSOR_SIZE,24"
