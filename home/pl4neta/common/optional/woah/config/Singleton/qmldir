@@ -1,0 +1,6 @@
+singleton Global 1.0 Global.qml
+singleton Clock 1.0 Clock.qml
+singleton Stats 1.0 Stats.qml
+singleton System 1.0 System.qml
+singleton Player 1.0 Player.qml
+singleton Notification 1.0 Notification.qml

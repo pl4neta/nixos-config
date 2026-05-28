@@ -112,7 +112,8 @@
                 #"swww-daemon &"
                 #"waybar &"
                 "systemctl --user start hyprpolkitagent"
-                "hyprpanel &"
+                "qs -c woah &"
+                #"hyprpanel &"
                 "swaybg -m fill -i .dotfiles/wallpapers/perfect-blue.jpeg &"
                 "~/bin/morse_daemon.py"
                 #"hyprlock"
@@ -183,7 +184,7 @@
                 "$mainMod ALT, B, exec, echo on > /tmp/morse_pipe" 
                 #eww
                 #dashboard
-                "$mainMod, Tab, exec, ~/.dotfiles/.config/eww/dashboard/launch_dashboard"
+                "$mainMod, Tab, exec, qs ipc call dashboard dashToggle"
 								## Screenshot
 								"CTRL, Print, exec, grimshot --notify save screen images/screenshots/$(TZ=gmt date +'screenshot_%Y-%m-%d_%H-%M-%S.%3N.png')" # All visible outputs
 								"CTRL SHIFT, Print, exec, grimshot --notify save area images/screenshots/$(TZ=gmt date +'screenshot_%Y-%m-%d_%H-%M-%S.%3N.png')" # Manually select a region

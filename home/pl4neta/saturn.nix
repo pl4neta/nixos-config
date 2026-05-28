@@ -11,6 +11,7 @@
     common/optional/spicetify.nix
     common/optional/swaylock.nix
     common/optional/morse
+    common/optional/woah
   ];
 
 }
