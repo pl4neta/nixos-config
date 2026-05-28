@@ -49,5 +49,9 @@
 	thunderbird
 
     prismlauncher
+
+    android-tools
+    droidcam
+    v4l-utils
   ];
 }
