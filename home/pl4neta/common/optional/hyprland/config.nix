@@ -86,7 +86,7 @@
             };
 
             dwindle = {
-                pseudotile = true;
+                #pseudotile = true;
                 preserve_split = true;
             };
 
@@ -112,7 +112,7 @@
                 #"swww-daemon &"
                 #"waybar &"
                 "systemctl --user start hyprpolkitagent"
-                "qs -c woah &"
+                "qs -c woah"
                 #"hyprpanel &"
                 "swaybg -m fill -i .dotfiles/wallpapers/perfect-blue.jpeg &"
                 "~/bin/morse_daemon.py"
@@ -128,7 +128,7 @@
                 "$mainMod, V, togglefloating,"
                 "$mainMod, R, exec, $menu"
                 "$mainMod, P, pseudo," # dwindle
-                "$mainMod, J, togglesplit," # dwindle
+                #"$mainMod, J, togglesplit," # dwindle
 
                 # Move focus with mainMod + arrow keys
                 "$mainMod, left, movefocus, l"
@@ -184,7 +184,7 @@
                 "$mainMod ALT, B, exec, echo on > /tmp/morse_pipe" 
                 #eww
                 #dashboard
-                "$mainMod, Tab, exec, qs ipc call dashboard dashToggle"
+                "$mainMod, Tab, exec, qs -c woah ipc call dashboard dashToggle"
 								## Screenshot
 								"CTRL, Print, exec, grimshot --notify save screen images/screenshots/$(TZ=gmt date +'screenshot_%Y-%m-%d_%H-%M-%S.%3N.png')" # All visible outputs
 								"CTRL SHIFT, Print, exec, grimshot --notify save area images/screenshots/$(TZ=gmt date +'screenshot_%Y-%m-%d_%H-%M-%S.%3N.png')" # Manually select a region

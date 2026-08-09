@@ -31,7 +31,6 @@
     xorg.xinput
     wineWowPackages.stable
     winetricks
-    lutris
   ];
 
   time.timeZone = "Europe/Lisbon";

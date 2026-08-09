@@ -8,7 +8,7 @@
         kitty
         libresprite
         lf
-        lutris
+        lutris-unwrapped
         mupdf
         obs-studio
         obsidian
