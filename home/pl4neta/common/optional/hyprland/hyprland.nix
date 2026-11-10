@@ -1,4 +1,4 @@
-{ inputs, pkgs, ...}: 
+{ lib, inputs, pkgs, ...}: 
 {
   home.packages = with pkgs; [
     # swww
@@ -19,5 +19,8 @@
     };
     # enableNvidiaPatches = false;
     systemd.enable = true;
+    configType = "lua";
+    settings = lib.mkForce { };
+    extraConfig = builtins.readFile ./hyprland.lua;
   };
 }

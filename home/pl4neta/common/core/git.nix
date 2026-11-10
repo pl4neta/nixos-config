@@ -3,10 +3,9 @@
   programs.git = {
     enable = true;
     
-    userName = "Pl4neta";
-    userEmail = "135662804+Pl4neta@users.noreply.github.com";
-    
-    extraConfig = { 
+    settings = {
+      user.name = "Pl4neta";
+      user.email = "135662804+Pl4neta@users.noreply.github.com";
       init.defaultBranch = "master";
       commit.gpgsign = true;
       gpg.format = "ssh";
